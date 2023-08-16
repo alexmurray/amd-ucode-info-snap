@@ -1,0 +1,28 @@
+name: amd-ucode-info
+base: core22
+version: "1"
+summary: Parse and display information about AMD CPU microcode container files
+description: |
+  A command-line tool to parse and display information about an amd-ucode (CPU
+  microcode) container file in the format consumed by the linux kernel.
+
+grade: stable
+confinement: strict
+license: MIT
+
+apps:
+  amd-ucode-info:
+    command: amd_ucode_info.py
+    plugs:
+      - home
+
+parts:
+  amd-ucode-info:
+    plugin: dump
+    source: https://github.com/AMDESE/amd_ucode_info.git
+    stage-packages:
+      - libpython3-stdlib
+      - libpython3.10-minimal
+      - libpython3.10-stdlib
+      - python3-minimal
+      - python3.10-minimal
